@@ -1,10 +1,14 @@
 require "tmoldovan_palindrome/version"
 
-class String
+module TmoldovanPalindrome
 
   # Returns true for a palindrome, false otherwise.
   def palindrome?
+   if processed_content.empty?
+	false
+	else
     processed_content == processed_content.reverse
+  end
   end
 
 
@@ -13,16 +17,16 @@ class String
 
     # Returns content for palindrome testing.
     def processed_content
-      self.scan(/[a-z]/i).join.downcase
+      self.scan(/[a-z,0-9]/i).join.downcase
     end
-
-
 
 
 end
 
+class String
+  include TmoldovanPalindrome
+end
 
-#module TmoldovanPalindrome
-#  class Error < StandardError; end
-  # Your code goes here...
-#end
+class Integer
+  include TmoldovanPalindrome
+end
