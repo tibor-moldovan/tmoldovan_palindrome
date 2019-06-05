@@ -17,7 +17,7 @@ module TmoldovanPalindrome
 
     # Returns content for palindrome testing.
     def processed_content
-      self.scan(/[a-z,0-9]/i).join.downcase
+      self.to_s.scan(/[a-z,0-9]/i).join.downcase
     end
 
 
